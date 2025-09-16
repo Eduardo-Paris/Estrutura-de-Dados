@@ -1,39 +1,49 @@
-void InsertionSort
+#include <stdio.h>
+#include <time.h>
 
-// funcao principal
+void TrocarElemento(int* A, int * B);
+int Particao(int * V, int Inf, int Sup);
 
-int main (){
+int main() {
 
-    int Conjunto[] = {1, 9, 7, 8, 5, 2};
-    int Tamanho = sizeof(Conjunto) / sizeof(int);
-    ExibirVetor(Conjunto, Tamanho);
-    printf("Vetor ordenado: \n");
-    
-    }
-
-void Insertiosort(int * V, int N){
-
-    int Chave; //elemento será inserido na parte ordenada
-    int i; // Posição (ou cordenada) do elemento chave
-    int j; // Posição de elemento da "parte ordenada" que será comprada com chave 
-
-    for(i = 1; i < N; i++){
-
-        Chave = V [i];
-        j = i - 1;
-
-        while(j >= 0 && V[j] > Chave){
-            V[j + 1] = V[j];
-            j--;
-        }
-
-        V[j + 1] = Chave; //copiando o chave no ultimo lugar modificado
-        ExibirVetor(V, N);
-    }
+int Vetor []= {3, 6, 4, 5, 1, 7, 2}
+int 
 
 }
+    void TrocarElemento(int * A, int * B){
 
-void ExibirVetor(int * V, int N){
+        //obs a e b são ponteiros guardam enderecos de memoria
 
-    int j;
+        int temp = *A;
+        *A = *B;
+        *B = temp;
+    
+}
+ 
+int Particao(int * V, int Inf, int Sup) {
+    int Pivot = V[(Inf + Sup) / 2];
+    printf("Pivot: %d\n", Pivot);
+    int i = Inf;
+    int j = Sup;
+
+    while (i <= j){
+        while(V[i] < Pivot) i++;
+        while(V[j] > Pivot) j++;
+        if (i <= j){
+            TrocarElemento (&V[i], &V[j]);
+
+            i++;
+            j--;
+
+        }
+    }
+return i;
+}
+
+void QuickSort(int * V, int Inf, int Sup) {
+    if (Inf < Sup) {
+        int P = Particao(V, Inf, P - 1);
+       QuickSort(V, Inf, P - 1);
+       QuickSort(V, P, Sup);
+    }
 }
