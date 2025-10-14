@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
-#include "equipe.h"
+#include "tarefa.h"
 
 int main () {Time * Tabela = Lerdados("tabela.csv");
 for (int i = 0; i < 20; i ++)
